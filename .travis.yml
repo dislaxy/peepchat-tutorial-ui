@@ -1,24 +1,25 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - bower --version
-  - npm install phantomjs-prebuilt
-  - phantomjs --version
-
+- npm config set spin false
+- npm install -g bower
+- bower --version
+- npm install phantomjs-prebuilt
+- phantomjs --version
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: wdI+stIZQaXPu15sqdZXbW5xnQ1sHp5yRDArqejWRQL+RScybT/RpSGAUOQumzAIhitHYoCJUDqy2fY00a3eqxLBboOqAoWCz2tMcBp4P1XFm7xhfCfPqiSV+6Ovqpix3HWV3QG/qHrUrLAWRItvuOUmtEryeoX3n2gCE6XVhG7qJvv5PhwMvTyvKlcLPsqseGuxsCj5U8dZw+sQEYRA/SNmGwxaVZke7ZGh+CKxLdLUID+aGwIs1cElKEQQ9Qvv2+bq1WYkgQ67zAkcawC/ovK4+JP3Z2gW0izac3bO5pqcYHifG3Ca4/yRtjjlng9gHtD3yMlkCh04hMOkcXkT2ELEA0chzhqxGILtg1kRc8q53AqhcZrRns+ufwjYbWPOTSf1lGDsPDHL6BJkNC5Teh8VLK7y4SjOmojoQshrdLIUans9ZYtc2s/S0qBKA8HERUIpGCMVHxD2PyjSoypU4mG33Wvsp13pgqHkdDL7comsnj6+0FksWC37Kwc4n5fRt8sDkCmbhFHeqY9oA/uQ6FKHzEvMKJe2Zqrye0lsULH1jEH6s3bqP5UEQLVrY2uZ5n821L8Nqgckt+ac5VF3KUE3/2hHsh0WLv3TrF0LRATDa7Cfe3ZnlvV5KW2bCPnO5tRg1ez8p0Z3jRdyoVrxjpAyU0uPV+WViUHg9AeNt5Y=
+  app: tranquil-mountain-76331
+  on:
+    repo: dislaxy/peepchat-tutorial-ui
